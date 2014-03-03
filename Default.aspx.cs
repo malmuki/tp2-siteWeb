@@ -4,13 +4,23 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["loguer"] = "false";
+        Session["loguer"] = false;
     }
 
     protected void btnConnect_Click(object sender, EventArgs e)
     {
-        Session["loguer"] = "true";
+        if (txbID.Text == "12345" && txtbPass.Text == "allo")
+        {
+            Session["id"] = "12345";
+            Session["loguer"] = true;
+            Response.Redirect("FormReservation.aspx");
+        }
+        else
+        {
+            
+        }
     }
+
     protected void btnInscrire_Click(object sender, EventArgs e)
     {
         Response.Redirect("Inscription.aspx");

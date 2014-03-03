@@ -24,11 +24,11 @@
             runat="server"
             Text="s'incrire"
             OnClick="btnInscrire_Click" />
-        
     </form>
-    <asp:ModelErrorMessage ID="lblError" runat="server" Text="Mauvais identifiant ou mot de passe!"/>
+    <asp:Label ID="lblError" runat="server" Visible="false" Text="Mauvais identifiant ou mot de passe!" />
     <footer>
         <link rel="bootstrap.css" />
+        <script src="script.js"></script>
         <script src="bootstrap.js"></script>
         <script src="jquery-2.1.0.js"></script>
     </footer>

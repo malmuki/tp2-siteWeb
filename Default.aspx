@@ -8,25 +8,26 @@
     <link href="bootstrap.css" rel="stylesheet" type="text/css" />
     <title>PEPS login/reservation</title>
 </head>
-<body class="bg-info container">
-    <div class="panel panel-primary" style="margin-top:100px">
+<body class="bg-info container" style="margin-top: 100px">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="panel-title">Connection</h1>
         </div>
 
-            <form id="login" runat="server" class ="panel-body">
-                <label>identifiant</label>
-                <asp:TextBox runat="server" ID="txbID"></asp:TextBox>
-                <label>password</label>
-                <asp:TextBox runat="server" ID="txtbPass" TextMode="Password"></asp:TextBox>
-                <asp:Button
-                    class="btn-primary"
-                    ID="btnConnect"
-                    runat="server"
-                    Text="se Connecter"
-                    OnClick="btnConnect_Click" />
-            </form>
-        </div>
+        <form id="login" runat="server" class="panel-body">
+            <label>identifiant</label>
+            <asp:TextBox runat="server" ID="txbID"></asp:TextBox>
+            <label>password</label>
+            <asp:TextBox runat="server" ID="txtbPass" TextMode="Password"></asp:TextBox>
+            <asp:Button
+                class="btn-primary"
+                ID="btnConnect"
+                runat="server"
+                Text="se Connecter"
+                OnClick="btnConnect_Click" />
+        </form>
+    </div>
+    <div>
         <asp:Label ID="lblError"
             runat="server"
             Visible="false"

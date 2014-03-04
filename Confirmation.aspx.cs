@@ -9,9 +9,9 @@ public partial class Confirmation : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        int nbSport = int.Parse(Request["ddlSport"]);
-        int nbHeureDebut = int.Parse(Request["ddlHeureDebut"]);
-        int nbHeureFin = int.Parse(Request["ddlHeureFin"]);
+        int nbSport = int.Parse(Request["ddlSport"]?? "0") ;
+        int nbHeureDebut = int.Parse(Request["ddlHeureDebut"] ?? "0");
+        int nbHeureFin = int.Parse(Request["ddlHeureFin"] ?? "0");
         string nom = Request["txtnom"];
         string prenom = Request["txtprenom"];
         string date = Request["txtDate"];

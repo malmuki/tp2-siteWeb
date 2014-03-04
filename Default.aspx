@@ -5,32 +5,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="bootstrap.css" rel="stylesheet" type="text/css" />
+
     <title>PEPS login/reservation</title>
 </head>
 <body>
-    <form id="login" runat="server">
-        <label>identifiant</label>
-        <asp:TextBox runat="server" Text="identifiant" ID="txbID"></asp:TextBox>
-        <label>password</label>
-        <asp:TextBox runat="server" ID="txtbPass" TextMode="Password"></asp:TextBox>
-        <asp:Button
-            ID="btnConnect"
+    <div class="container-fluid panel panel-default ">
+        <div class="panel-heading">
+            <h2 class="panel-title">Connection</h2>
+            <form id="login" runat="server" class ="panel-body">
+                <label class="label-success">identifiant</label>
+                <asp:TextBox runat="server" ID="txbID"></asp:TextBox>
+                <label class="label-success">password</label>
+                <asp:TextBox runat="server" ID="txtbPass" TextMode="Password"></asp:TextBox>
+                <asp:Button
+                    class="btn-primary"
+                    ID="btnConnect"
+                    runat="server"
+                    Text="se Connecter"
+                    OnClick="btnConnect_Click" />
+            </form>
+        </div>
+        <asp:Label ID="lblError"
             runat="server"
-            Text="se Connecter"
-            OnClick="btnConnect_Click" />
-
-        <asp:Button
-            ID="btnInscrire"
-            runat="server"
-            Text="s'incrire"
-            OnClick="btnInscrire_Click" />
-    </form>
-    <asp:Label ID="lblError" runat="server" Visible="false" Text="Mauvais identifiant ou mot de passe!" />
+            Visible="false"
+            Text="Mauvais identifiant ou mot de passe!"
+            class="label-danger" />
+    </div>
     <footer>
-        <link rel="bootstrap.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="script.js"></script>
         <script src="bootstrap.js"></script>
-        <script src="jquery-2.1.0.js"></script>
     </footer>
 </body>
 </html>

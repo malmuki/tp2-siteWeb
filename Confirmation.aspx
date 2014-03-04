@@ -9,7 +9,7 @@
     <title>PEPS login/reservation</title>
 </head>
 <body class="bg-info container">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" style="margin-top:100px">
         
         <div class="alert-success panel-heading">
             <h1 class="panel-title">Merci

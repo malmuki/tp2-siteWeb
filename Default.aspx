@@ -6,17 +6,18 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="bootstrap.css" rel="stylesheet" type="text/css" />
-
     <title>PEPS login/reservation</title>
 </head>
-<body>
-    <div class="container-fluid panel panel-default ">
+<body class="bg-info container">
+    <div class="panel panel-primary ">
         <div class="panel-heading">
-            <h2 class="panel-title">Connection</h2>
+            <h1 class="panel-title">Connection</h1>
+        </div>
+
             <form id="login" runat="server" class ="panel-body">
-                <label class="label-success">identifiant</label>
+                <label>identifiant</label>
                 <asp:TextBox runat="server" ID="txbID"></asp:TextBox>
-                <label class="label-success">password</label>
+                <label>password</label>
                 <asp:TextBox runat="server" ID="txtbPass" TextMode="Password"></asp:TextBox>
                 <asp:Button
                     class="btn-primary"
@@ -34,7 +35,6 @@
     </div>
     <footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="script.js"></script>
         <script src="bootstrap.js"></script>
     </footer>
 </body>

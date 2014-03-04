@@ -115,6 +115,6 @@ public partial class Confirmation : System.Web.UI.Page
     }
     protected void btnRetourFormulaire_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Default.aspx");
+        Server.Transfer("FormReservation.aspx");
     }
 }

@@ -13,21 +13,10 @@ public partial class FormReservation : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if (validateForm())
+        if (this.IsValid)
         {
             Response.Redirect("Confirmation.aspx");
         }
-    }
-    bool validateForm()
-    {
-        bool returnedValue = false;
-
-        if ((RequiredFieldValidatorNom.IsValid == true) && (RequiredFieldValidatorPrenom.IsValid == true) && (RequiredFieldValidatorDate.IsValid == true) && (heureValide(int.Parse(ddlHeureDebut.SelectedValue), int.Parse(ddlHeureFin.SelectedValue)) == true) && (dateValidator(calDate.SelectedDate) == true))
-        {
-            returnedValue = true;
-        }
-
-        return returnedValue;   
     }
     protected void btnDeconnexion_Click(object sender, EventArgs e)
     {
@@ -75,5 +64,15 @@ public partial class FormReservation : System.Web.UI.Page
         }
 
         return returnedValue;
+    }
+    protected void heureValidator_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        int heureDebut = int.Parse(ddlHeureDebut.SelectedValue);
+        int heureFinMin = heureDebut + 1;
+        int heureFinMax = heureDebut + 3;
+        int heureFin = int.Parse(ddlHeureFin.SelectedValue);
+
+        args.IsValid = (heureDebut < heureFin) && (heureFin <= heureFinMax) && (heureFin >= heureFinMin);        
+
     }
 }

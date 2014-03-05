@@ -13,7 +13,7 @@
         <div>
             Vous êtes connecté en tant que
             <asp:Label ID="lblUsername" runat="server"></asp:Label><br />
-            <asp:Button ID="btnDeconnexion" runat="server" Text="Déconnexion" OnClick="btnDeconnexion_Click" /><br />
+            <asp:Button ID="btnDeconnexion" runat="server" Text="Déconnexion" OnClick="btnDeconnexion_Click" causeValidation="false"/><br />
             <br />
             Nom:<asp:TextBox ID="txtnom" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidatorNom" ErrorMessage="Le nom est obligatoire" ControlToValidate="txtNom"> </asp:RequiredFieldValidator><br />
@@ -65,8 +65,9 @@
             <asp:ListItem Text="17:00" Value="17"></asp:ListItem>
             <asp:ListItem Text="18:00" Value="18"></asp:ListItem>
         </asp:DropDownList>
+        <asp:CustomValidator runat="server" ID="heureValidator" ErrorMessage="La duree de la reservation doit etre entre 1 et 3 heures." ControlToValidate="ddlHeureDebut" OnServerValidate="heureValidator_ServerValidate"></asp:CustomValidator>
             <br />
-            <asp:Button runat="server" ID="btnSubmit" Text="Soummettre" OnClick="btnSubmit_Click" PostBackUrl="~/Confirmation.aspx" />
+            <asp:Button runat="server" ID="btnSubmit" Text="Soummettre" OnClick="btnSubmit_Click" />
         </div>
     </form>
     <footer>

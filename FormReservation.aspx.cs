@@ -75,4 +75,9 @@ public partial class FormReservation : System.Web.UI.Page
         args.IsValid = (heureDebut < heureFin) && (heureFin <= heureFinMax) && (heureFin >= heureFinMin);        
 
     }
+
+    protected void dateValidator_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        args.IsValid = (DateTime.Today.AddDays(3) < calDate.SelectedDate);
+    }
 }

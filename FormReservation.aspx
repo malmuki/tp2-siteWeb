@@ -37,6 +37,8 @@
             Date:<asp:TextBox ID="txtDate" runat="server" ReadOnly="true"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidatorDate" ErrorMessage="La date est obligatoire" ControlToValidate="txtDate"></asp:RequiredFieldValidator><br />
             <asp:Calendar runat="server" ID="calDate" OnSelectionChanged="calDate_SelectionChanged"></asp:Calendar>
+            <asp:CustomValidator runat="server" ID="CustomValidator1" ErrorMessage="Vous devez réserver au moins trois jours à l'avance"
+               OnServerValidate="dateValidator_ServerValidate" />
             <br />
             Plage horaire désirée:<br />
             De

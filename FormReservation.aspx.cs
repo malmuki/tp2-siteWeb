@@ -1,34 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class FormReservation : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["id"] != null)
-            lblUsername.Text = Session["id"].ToString();
+        lblUsername.Text = Session["id"].ToString();
     }
-
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         if (this.IsValid)
         {
-            Server.Transfer("Confirmation.aspx");
+            Response.Redirect("Confirmation.aspx");
         }
     }
-
     protected void btnDeconnexion_Click(object sender, EventArgs e)
     {
-        Session["id"] = null;
+        Session["loguer"] = false;
         Response.Redirect("Default.aspx");
     }
-
     protected void calDate_SelectionChanged(object sender, EventArgs e)
     {
         txtDate.Text = calDate.SelectedDate.ToString("yyyy-MM-dd");
     }
-
-    private bool dateValidator(DateTime date)
+    bool dateValidator(DateTime date)
     {
         bool returnedValue = false;
 
@@ -39,8 +38,7 @@ public partial class FormReservation : System.Web.UI.Page
 
         return returnedValue;
     }
-
-    private int HeureFinMinValue(int heureDebut)
+    int HeureFinMinValue(int heureDebut)
     {
         int HeureMinFin;
 
@@ -48,8 +46,7 @@ public partial class FormReservation : System.Web.UI.Page
 
         return HeureMinFin;
     }
-
-    private int HeureFinMaxValue(int heureDebut)
+    int HeureFinMaxValue(int heureDebut)
     {
         int HeureMaxFin;
 
@@ -57,8 +54,7 @@ public partial class FormReservation : System.Web.UI.Page
 
         return HeureMaxFin;
     }
-
-    private bool heureValide(int heureDebut, int heureFin)
+    bool heureValide(int heureDebut, int heureFin)
     {
         bool returnedValue = false;
 
@@ -69,7 +65,6 @@ public partial class FormReservation : System.Web.UI.Page
 
         return returnedValue;
     }
-
     protected void heureValidator_ServerValidate(object source, ServerValidateEventArgs args)
     {
         int heureDebut = int.Parse(ddlHeureDebut.SelectedValue);
@@ -77,22 +72,12 @@ public partial class FormReservation : System.Web.UI.Page
         int heureFinMax = heureDebut + 3;
         int heureFin = int.Parse(ddlHeureFin.SelectedValue);
 
-        args.IsValid = (heureDebut < heureFin) && (heureFin <= heureFinMax) && (heureFin >= heureFinMin);
+        args.IsValid = (heureDebut < heureFin) && (heureFin <= heureFinMax) && (heureFin >= heureFinMin);        
+
     }
 
     protected void dateValidator_ServerValidate(object source, ServerValidateEventArgs args)
     {
         args.IsValid = (DateTime.Today.AddDays(3) < calDate.SelectedDate);
-    }
-
-    protected void reset_Click(object sender, EventArgs e)
-    {
-        txtnom.Text = "";
-        txtPrenom.Text = "";
-        ddlSport.SelectedIndex = 0;
-        txtDate.Text = "";
-        calDate.SelectedDates.Remove(calDate.SelectedDate);
-        ddlHeureDebut.SelectedIndex = 0;
-        ddlHeureFin.SelectedIndex = 0;
     }
 }

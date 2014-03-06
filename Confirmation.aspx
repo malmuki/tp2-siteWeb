@@ -8,14 +8,12 @@
     <link href="bootstrap.css" rel="stylesheet" type="text/css" />
     <title>PEPS login/reservation</title>
 </head>
-<body class="bg-info container " style="margin: 100px">
-    <%if (Session["id"] != null)
-      { %>
-    <div class="panel panel-primary">
+<body class="bg-info container">
+    <div class="panel panel-primary" style="margin-top: 100px">
 
         <div class="alert-success panel-heading">
             <h1 class="panel-title">Merci
-                <asp:Label runat="server" ID="lblNomEtPrenom" />!</h1>
+                <asp:Label runat="server" ID="lblNomEtPrenom"></asp:Label>!</h1>
         </div>
         <form id="form1" runat="server" class="panel-body">
 
@@ -25,7 +23,6 @@
             </div>
             Terrain de
             <asp:Label runat="server" ID="lblSportTerrain"></asp:Label>
-            &nbsp;#1
             Réservé pour le
             <asp:Label runat="server" ID="lblDate"></asp:Label>
             de
@@ -41,25 +38,10 @@
                     class="btn-success btn-lg" />
             </div>
         </form>
+        <footer>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            <script src="bootstrap.js"></script>
+        </footer>
     </div>
-    <h3><a href="mailto:spray.n.revive@murica.freedom">nous joindre</a></h3>
-    <%}
-      else
-      { %>
-    <form id="Form2" runat="server">
-        <label>Vous n'etes pas connecter</label>
-        <asp:Button
-            class="btn-warning"
-            ID="Button2"
-            runat="server"
-            Text="Connectez-vous"
-            PostBackUrl="~/Default.aspx" />
-    </form>
-
-    <%} %>
-    <footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="bootstrap.js"></script>
-    </footer>
 </body>
 </html>

@@ -8,7 +8,9 @@
     <link href="bootstrap.css" rel="stylesheet" type="text/css" />
     <title>PEPS login/reservation</title>
 </head>
-<body class="bg-info container" style="margin-top: 100px">
+<body class="bg-info container" style="margin: 100px">
+    <%if (Session["id"] == null)
+      { %>
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h1 class="panel-title">Connection</h1>
@@ -23,17 +25,31 @@
                 class="btn-primary"
                 ID="btnConnect"
                 runat="server"
-                Text="se Connecter"
+                Text="Se Connecter"
                 OnClick="btnConnect_Click" />
         </form>
     </div>
+    <h3><a href="mailto:spray.n.revive@murica.freedom">nous joindre</a></h3>
     <div>
         <asp:Label ID="lblError"
             runat="server"
             Visible="false"
             Text="Mauvais identifiant ou mot de passe!"
-            class="label-danger" />
+            class="alert-danger" />
     </div>
+    <%}
+      else
+      { %>
+    <form runat="server">
+        <label>Vous etes deja connecter</label>
+        <asp:Button
+            class="btn-warning"
+            ID="Button2"
+            runat="server"
+            Text="Redirection"
+            PostBackUrl="~/FormReservation.aspx" />
+    </form>
+    <%} %>
     <footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="bootstrap.js"></script>
